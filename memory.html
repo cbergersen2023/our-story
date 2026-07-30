@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Our Story | Chris &amp; Gaby</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+<body class="netflix">
+
+    <!-- =========================
+         PAGE FADE
+    ========================== -->
+
+    <div
+        class="page-fade"
+        id="pageFade"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- =========================
+         AUDIO
+    ========================== -->
+
+    <audio
+        id="netflixIntro"
+        preload="auto"
+    >
+        <source
+            src="assets/netflix-intro.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+    <audio
+        id="backgroundMusic"
+        loop
+        preload="auto"
+    >
+        <source
+            src="assets/whatever-it-is.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+
+    <!-- =========================
+         CINEMATIC INTRO
+    ========================== -->
+
+    <div
+        class="site-intro"
+        id="siteIntro"
+        aria-hidden="true"
+    >
+        <div class="intro-darkness"></div>
+
+        <div class="intro-red-glow"></div>
+
+        <div class="intro-light-sweep"></div>
+
+        <div class="intro-logo">
+
+            <span class="intro-logo-small">
+                A CHRIS &amp; GABY ORIGINAL
+            </span>
+
+            <span class="intro-logo-main">
+                C ❤️ G
+            </span>
+
+        </div>
+
+        <div class="intro-hero-reveal"></div>
+    </div>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav
+        class="memory-navbar"
+        id="memoryNavbar"
+        aria-label="Memory page navigation"
+    >
+
+        <div class="navbar-logo">
+
+            <a
+                href="#home"
+                class="nav-scroll-link navbar-name-link"
+            >
+                Chris
+            </a>
+
+            <button
+                class="secret-heart"
+                id="secretHeart"
+                type="button"
+                aria-label="Open a hidden message"
+                title="Hidden memory"
+            >
+                ❤️
+            </button>
+
+            <a
+                href="#home"
+                class="nav-scroll-link navbar-name-link"
+            >
+                Gaby
+            </a>
+
+        </div>
+
+        <div class="navbar-links">
+
+            <a
+                href="#home"
+                class="nav-link nav-scroll-link active"
+            >
+                Home
+            </a>
+
+            <a
+                href="#season1"
+                class="nav-link nav-scroll-link"
+            >
+                Season 1
+            </a>
+
+            <a
+                href="#season2"
+                class="nav-link nav-scroll-link"
+            >
+                Season 2
+            </a>
+
+            <a
+                href="#credits"
+                class="nav-link nav-scroll-link"
+            >
+                End Credits
+            </a>
+
+        </div>
+
+        <button
+            class="music-toggle"
+            id="musicToggle"
+            type="button"
+            aria-label="Play or pause background music"
+            title="Play or pause music"
+        >
+            <span id="musicIcon" aria-hidden="true">
+                🔇
+            </span>
+        </button>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <header
+        class="hero"
+        id="home"
+    >
+
+        <div class="hero-content">
+
+            <div class="hero-left">
+
+                <p class="hero-label">
+                    A CHRIS &amp; GABY ORIGINAL
+                </p>
+
+                <h1>
+                    Our Love Story
+                </h1>
+
+                <p class="hero-description">
+                    Every month became another episode.
+                    <br>
+                    Every memory became another favorite scene. ❤️
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button
+                        class="play-btn"
+                        type="button"
+                        onclick="playTrailer()"
+                    >
+                        ▶ Play Trailer
+                    </button>
+
+                    <button
+                        class="info-btn"
+                        type="button"
+                        onclick="openMoreInfo()"
+                    >
+                        ⓘ More Info
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+       <div
+    class="hero-art"
+    id="heroArt"
+>
+    <img
+        src="assets/loveyou.png"
+        alt="Love You heart characters"
+    >
+
+    <button
+        class="hero-secret-butterfly"
+        id="secretButterfly"
+        type="button"
+        aria-label="Open butterfly message"
+        title="Open secret message"
+    >
+        🦋
+    </button>
+</div>
+
+        <div class="hero-overlay"></div>
+
+    </header>
+
+
+    <!-- =========================
+         OFFICIAL TRAILER
+    ========================== -->
+
+    <section
+        class="season"
+        aria-labelledby="trailerTitle"
+    >
+
+        <h2 id="trailerTitle">
+            Official Trailer
+        </h2>
+
+        <div
+            class="episode-row"
+            id="trailerRow"
+        ></div>
+
+    </section>
+
+
+    <!-- =========================
+         SEASON 1
+    ========================== -->
+
+    <section
+        class="season"
+        id="season1"
+        aria-labelledby="season1Title"
+    >
+
+        <h2 id="season1Title">
+            Season 1
+        </h2>
+
+        <div
+            class="episode-row"
+            id="season1Row"
+        ></div>
+
+    </section>
+
+
+    <!-- =========================
+         SEASON 2
+    ========================== -->
+
+    <section
+        class="season"
+        id="season2"
+        aria-labelledby="season2Title"
+    >
+
+        <div class="season-heading">
+
+            <div>
+
+                <h2 id="season2Title">
+                    Season 2 — Our Next Chapter
+                </h2>
+
+                <p class="season-description">
+                    The next six months of our story,
+                    one episode at a time.
+                </p>
+
+            </div>
+
+            <span class="new-season-badge">
+                NEW SEASON
+            </span>
+
+        </div>
+
+        <div
+            class="episode-row"
+            id="season2Row"
+        ></div>
+
+    </section>
+
+
+    <!-- =========================
+         END CREDITS PREVIEW
+    ========================== -->
+
+    <section
+        class="credits-preview"
+        id="credits"
+        aria-labelledby="creditsPreviewTitle"
+    >
+
+        <p class="credits-eyebrow">
+            A CHRIS &amp; GABY ORIGINAL
+        </p>
+
+        <h2 id="creditsPreviewTitle">
+            End Credits
+        </h2>
+
+        <p>
+            Every episode may end, but our story is only getting
+            started. Watch the credits for a special preview of
+            what comes next.
+        </p>
+
+        <button
+            class="credits-button"
+            id="openCreditsButton"
+            type="button"
+        >
+            Watch End Credits
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         MORE INFORMATION MODAL
+    ========================== -->
+
+    <div
+        class="info-modal"
+        id="infoModal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="info-modal-content"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="infoModalTitle"
+        >
+
+            <button
+                class="info-close"
+                type="button"
+                onclick="closeMoreInfo()"
+                aria-label="Close more information"
+            >
+                ×
+            </button>
+
+            <p class="info-label">
+                A CHRIS &amp; GABY ORIGINAL
+            </p>
+
+            <h2 id="infoModalTitle">
+                Our Love Story
+            </h2>
+
+            <p class="info-match">
+                100% Match
+            </p>
+
+            <p class="info-description">
+                From our first memories to every adventure that followed,
+                this is the story of Chris and Gaby. Every month brought
+                another episode, every photo captured another favorite
+                scene, and the best chapters are still ahead.
+            </p>
+
+            <div class="info-details">
+
+                <p>
+                    <strong>Starring:</strong>
+                    Chris and Gaby
+                </p>
+
+                <p>
+                    <strong>Genres:</strong>
+                    Romance, Comedy, Adventure
+                </p>
+
+                <p>
+                    <strong>This series is:</strong>
+                    Heartfelt and unforgettable
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         ORIGINAL CINEMATIC ENDING
+    ========================== -->
+
+    <div
+        class="final-ending"
+        id="finalEnding"
+        aria-hidden="true"
+    >
+        <div class="ending-message ending-season">
+            Season 2 Part II...
+        </div>
+
+        <div class="ending-message ending-date">
+            Coming September, 2026
+        </div>
+
+        <div class="ending-message ending-anniversary">
+            Happy 9 Months ❤️
+        </div>
+
+        <div class="ending-message ending-love">
+            I love you forever.
+        </div>
+
+        <div class="ending-heart">
+            ❤️
+        </div>
+    </div>
+
+
+    <!-- =========================
+         BLACK CINEMATIC TRANSITION
+    ========================== -->
+
+    <div
+        class="credits-transition"
+        id="creditsTransition"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- =========================
+         FULL-SCREEN END CREDITS
+    ========================== -->
+
+    <div
+        class="credits-modal"
+        id="creditsModal"
+        aria-hidden="true"
+    >
+
+        <button
+            class="credits-modal-close"
+            id="creditsCloseButton"
+            type="button"
+            aria-label="Close credits"
+            title="Close credits"
+        >
+            ×
+        </button>
+
+        <div
+            class="scrolling-credits"
+            id="scrollingCredits"
+        >
+
+            <p class="credits-original">
+                A CHRIS &amp; GABY ORIGINAL
+            </p>
+
+            <h2>
+                Our Story
+            </h2>
+
+            <h3>
+                Starring
+            </h3>
+
+            <p>
+                Chris
+                <br>
+                Gaby
+            </p>
+
+            <h3>
+                Directed By
+            </h3>
+
+            <p>
+                Love
+            </p>
+
+            <h3>
+                Produced By
+            </h3>
+
+            <p>
+                Every adventure we shared
+            </p>
+
+            <h3>
+                Created With
+            </h3>
+
+            <p>
+                Love, laughter, memories,
+                <br>
+                and way too many pictures
+            </p>
+
+            <h3>
+                Special Thanks
+            </h3>
+
+            <p>
+                To every moment that brought us closer
+                <br>
+                and every memory still waiting for us
+            </p>
+
+            <p
+                class="final-line"
+                id="finalLine"
+            >
+                The best season hasn't been released yet.
+            </p>
+
+        </div>
+
+        <div
+            class="credits-end-fade"
+            id="creditsEndFade"
+            aria-hidden="true"
+        ></div>
+
+    </div>
+
+
+    <!-- =========================
+         HIDDEN HEART LOVE NOTE
+    ========================== -->
+
+    <div
+        class="love-note-modal"
+        id="loveNoteModal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="love-note-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="loveNoteTitle"
+        >
+
+            <button
+                class="love-note-close"
+                id="loveNoteClose"
+                type="button"
+                aria-label="Close hidden message"
+            >
+                ×
+            </button>
+
+            <p class="love-note-label">
+                HIDDEN MEMORY UNLOCKED
+            </p>
+
+            <h2 id="loveNoteTitle">
+                For Gaby ❤️
+            </h2>
+
+            <p>
+                Every picture on this website reminds me how lucky I am
+                that I get to make these memories with you.
+            </p>
+
+            <p class="love-note-signature">
+                Love,
+                <br>
+                Chris
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         WATCHING MESSAGE
+    ========================== -->
+
+    <div
+        class="watching-message"
+        id="watchingMessage"
+        aria-hidden="true"
+    >
+        Thanks for watching our first season. ❤️
+    </div>
+
+
+    <!-- =========================
+         BUTTERFLY SECRET MESSAGE
+    ========================== -->
+
+    <div
+        class="butterfly-secret-overlay"
+        id="butterflySecretOverlay"
+        aria-hidden="true"
+    >
+
+        <div
+            class="secret-effects"
+            id="butterflyEffects"
+            aria-hidden="true"
+        ></div>
+
+        <div
+            class="butterfly-secret-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="butterflySecretTitle"
+        >
+
+            <button
+                class="butterfly-secret-close"
+                id="butterflySecretClose"
+                type="button"
+                aria-label="Close secret message"
+            >
+                ×
+            </button>
+
+            <div
+                class="butterfly-secret-icon"
+                aria-hidden="true"
+            >
+                ❤️
+            </div>
+
+            <p class="butterfly-secret-label">
+                You found our little secret
+            </p>
+
+            <h2 id="butterflySecretTitle">
+                Our Beautiful Story
+            </h2>
+
+            <div class="secret-card-divider">
+                <span aria-hidden="true">
+                    🦋
+                </span>
+            </div>
+
+            <p>
+                You still give me butterflies, and each time it
+                reminds me how much I love you. ❤️
+            </p>
+
+            <p>
+                I am so glad that all the bumps in the road and all
+                the adventures I had led me to you, my Diiiwisshhcious
+                Gabbinator. ❤️
+            </p>
+
+            <p class="butterfly-secret-signature">
+                I love you forever.
+                <br>
+                <strong>— Chris ❤️</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT FILES
+    ========================== -->
+
+    <script src="js/memories.js"></script>
+    <script src="js/app.js"></script>
+
+
+    <!-- =========================
+         PAGE NAVIGATION AND FADE
+    ========================== -->
+
+    <script>
+        document.addEventListener("keydown", function (event) {
+            if (event.key !== "Escape") {
+                return;
+            }
+
+            const creditsModal =
+                document.getElementById("creditsModal");
+
+            const infoModal =
+                document.getElementById("infoModal");
+
+            const loveNoteModal =
+                document.getElementById("loveNoteModal");
+
+            const butterflyOverlay =
+                document.getElementById("butterflySecretOverlay");
+
+            const modalIsOpen =
+                (
+                    creditsModal &&
+                    creditsModal.classList.contains("open")
+                ) ||
+                (
+                    infoModal &&
+                    (
+                        infoModal.classList.contains("open") ||
+                        infoModal.classList.contains("show") ||
+                        infoModal.classList.contains("active")
+                    )
+                ) ||
+                (
+                    loveNoteModal &&
+                    (
+                        loveNoteModal.classList.contains("open") ||
+                        loveNoteModal.classList.contains("show") ||
+                        loveNoteModal.classList.contains("active")
+                    )
+                ) ||
+                (
+                    butterflyOverlay &&
+                    (
+                        butterflyOverlay.classList.contains("open") ||
+                        butterflyOverlay.classList.contains("show") ||
+                        butterflyOverlay.classList.contains("active")
+                    )
+                );
+
+            if (modalIsOpen) {
+                return;
+            }
+
+            const pageFade =
+                document.getElementById("pageFade");
+
+            if (pageFade) {
+                pageFade.classList.add("show");
+            }
+
+            window.setTimeout(function () {
+                window.location.href = "profile.html";
+            }, 700);
+        });
+
+        window.addEventListener("pageshow", function () {
+            const pageFade =
+                document.getElementById("pageFade");
+
+            if (!pageFade) {
+                return;
+            }
+
+            pageFade.classList.add("show");
+
+            window.requestAnimationFrame(function () {
+                window.requestAnimationFrame(function () {
+                    pageFade.classList.remove("show");
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
