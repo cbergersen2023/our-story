@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Who's Watching?</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="profile-page">
+
+    <main class="profile-screen">
+
+        <h1>Who's Watching?</h1>
+
+        <div class="penguin-wrapper">
+
+            <a
+                href="memory.html"
+                class="penguin-profile"
+                id="penguinProfile"
+            >
+
+                <img
+                    src="assets/penguins.png"
+                    class="penguin-image"
+                    alt="Chris and Gaby"
+                >
+
+                <span class="penguin-name">
+                    Chris &amp; Gaby ❤️
+                </span>
+
+            </a>
+
+        </div>
+
+    </main>
+
+    <!-- =========================
+         PROFILE TRANSITION
+    ========================== -->
+
+    <div
+        class="page-transition"
+        id="pageTransition"
+        aria-hidden="true"
+    >
+
+        <div
+            class="transition-heart"
+            aria-hidden="true"
+        >
+            ❤️
+        </div>
+
+        <p>
+            Chris &amp; Gaby
+        </p>
+
+    </div>
+
+    <!-- =========================
+         PAGE FADE
+    ========================== -->
+
+    <div
+        class="page-fade"
+        id="pageFade"
+        aria-hidden="true"
+    ></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const profileLink =
+                document.getElementById("penguinProfile");
+
+            const transition =
+                document.getElementById("pageTransition");
+
+            const pageFade =
+                document.getElementById("pageFade");
+
+            if (profileLink && transition) {
+                profileLink.addEventListener(
+                    "click",
+                    function (event) {
+                        event.preventDefault();
+
+                        const nextPage =
+                            profileLink.getAttribute("href");
+
+                        /*
+                          Lets memory.html know that the visitor
+                          entered by clicking the profile.
+                        */
+                        sessionStorage.setItem(
+                            "startAnniversaryMusic",
+                            "yes"
+                        );
+
+                        transition.classList.add("active");
+
+                        transition.setAttribute(
+                            "aria-hidden",
+                            "false"
+                        );
+
+                        window.setTimeout(function () {
+                            document.body.classList.add(
+                                "page-fade-out"
+                            );
+                        }, 500);
+
+                        window.setTimeout(function () {
+                            window.location.href = nextPage;
+                        }, 1250);
+                    }
+                );
+            }
+
+            document.addEventListener(
+                "keydown",
+                function (event) {
+                    if (event.key !== "Escape") {
+                        return;
+                    }
+
+                    if (pageFade) {
+                        pageFade.classList.add("show");
+                        pageFade.setAttribute(
+                            "aria-hidden",
+                            "false"
+                        );
+                    }
+
+                    window.setTimeout(function () {
+                        window.location.href = "index.html";
+                    }, 700);
+                }
+            );
+        });
+
+        /*
+          Removes transition and fade classes when this page
+          is restored using the browser Back button.
+        */
+        window.addEventListener("pageshow", function () {
+            const transition =
+                document.getElementById("pageTransition");
+
+            const pageFade =
+                document.getElementById("pageFade");
+
+            document.body.classList.remove("page-fade-out");
+
+            if (transition) {
+                transition.classList.remove("active");
+
+                transition.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+            }
+
+            if (pageFade) {
+                pageFade.classList.remove("show");
+
+                pageFade.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+            }
+        });
+    </script>
+
+</body>
+
+</html>
